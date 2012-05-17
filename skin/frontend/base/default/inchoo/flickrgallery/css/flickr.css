@@ -1,0 +1,28 @@
+/* Inchoo Flickr Gallery module styles */
+
+.flickr_gallery { }
+.flickr_gallery .f-clear { clear:both; }
+.flickr_gallery .page-title .description { }
+.flickr_gallery .photoset-thumb-wrapper { margin-top:10px; }
+.flickr_gallery .thumbnail { margin-bottom:10px; width:48%; float:left; }
+.flickr_gallery .thumbnail.odd { margin-right:4%; }
+.flickr_gallery .thumbnail table td.img { padding-right:10px; }
+.flickr_gallery .thumbnail table td.img .img_wrapper { }
+.flickr_gallery .thumbnail table td.img .img_wrapper:hover { }
+.flickr_gallery .thumbnail table td.info h4 { }
+.flickr_gallery .thumbnail table td.info .description { }
+
+.flickr_gallery .photo-thumb-wrapper { margin-top:5px; }
+.flickr_gallery .photo_thumb { float:left; margin:0 5px 0 0; }
+.flickr_gallery .photo_thumb.last_thumb { }
+.flickr_gallery .photo_thumb .img_wrapper { display:table-cell; vertical-align:middle; }
+.flickr_gallery .photo_thumb .img_wrapper:hover { }
+
+#flickr_galley_ajax { }
+#loading-mask { 
+	display:block; width:120px; min-height:30px; padding:25px 40px 20px 40px; margin:0 auto; background:#fff; 
+	text-align:center; font-size:1.2em; color:#999;
+	border:1px solid #d2d2d2;
+	-moz-box-shadow:0px 0px 4px #ddd; -webkit-box-shadow:0px 0px 4px #ddd; box-shadow:0px 0px 4px #ddd;
+	-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
+}

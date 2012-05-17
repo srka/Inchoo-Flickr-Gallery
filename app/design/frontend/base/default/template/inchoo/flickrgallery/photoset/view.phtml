@@ -1,0 +1,56 @@
+<?php 
+	$_set_id = $this->getPhotosetId();
+	$_page = $this->getPageNumber();
+	$_per_page = $this->getPerPage();
+	$_photosetResult = $this->getPhotoSet($_set_id, $_page, $_per_page);
+	$_photoset = $_photosetResult['photoset'];
+	$_photos = $_photosetResult['photos'];
+	$_thumbPrefix = $this->getThumbSizePrefix();
+	if(!isset($_thumbPrefix) || empty($_thumbPrefix)) $_thumbPrefix = 't';
+	$_fullsizePrefix = $this->getFullSizePrefix();
+	
+	// Toolbar Data	
+	$_data['view'] =  'photoset';
+	$_data['total'] =  $_photosetResult['total'];
+	$_data['pages'] =  $_photosetResult['pages'];
+	$_data['page'] =  $_page;
+	$_data['per_page'] =  $_per_page;
+	$_data['photoset_id'] = $_photoset['id'] . '';
+	
+	$hasTooltip = $this->carouselHasTooltip();
+?>
+
+<?php if($this->canDisplay($_photoset['id']) && !empty($_photos)): ?>
+	
+	<p class="description"><?php echo $_photoset['description'] ?></p>
+	
+	<?php echo $this->getLayout()->createBlock('flickr/toolbar', 'flickrtoolbar')->setData('data', $_data)->setTemplate('inchoo/flickrgallery/toolbar.phtml')->toHtml(); ?>
+    
+    <div class="photo-thumb-wrapper">
+		<?php $tmp_count = 0; ?>
+        <?php foreach($_photos as $_photo):?>
+        <?php $tmp_count++; ?>
+        <div id="photo_thumb_<?php echo $_photo['id'] ?>" class="photo_thumb<?php if($hasTooltip) echo ' opentip' ?>" title="<?php echo $_photo['title'] ?>">
+		
+			<?php $_image_rel = (Mage::getStoreConfig('flickrconfig/flickrlightbox/use_lightbox')) ? "lightbox[" . $_photoset['title'] . "]" : $_photoset['title']; ?>
+			<?php $_image_target = (Mage::getStoreConfig('flickrconfig/flickrlightbox/image_target')) ? 'target="_blank"' : '' ?>
+			
+    		<?php if(!isset($_fullsizePrefix) || empty($_fullsizePrefix) || $_fullsizePrefix == 'o'): ?>
+            <a title="<?php echo $_photo['title'] ?>" rel="<?php echo $_image_rel ?>" href="<?php echo $_photo['maxsize'] ?>" <?php echo $_image_target ?> class="<?php echo Mage::getStoreConfig('flickrconfig/flickrlightbox/custom_class') ?>">
+            <?php else: ?>
+            <a title="<?php echo $_photo['title'] ?>" rel="<?php echo $_image_rel ?>" href="http://farm<?php echo $_photo['farm'] ?>.static.flickr.com/<?php echo $_photo['server'] ?>/<?php echo $_photo['id'] ?>_<?php echo $_photo['secret'] ?>_<?php echo $_fullsizePrefix; ?>.jpg" <?php echo $_image_target ?> class="<?php echo Mage::getStoreConfig('flickrconfig/flickrlightbox/custom_class') ?>">
+            <?php endif; ?>
+                <div class="img_wrapper">
+                    <img <?php if($hasTooltip): ?>title=" "<?php else: ?>title="<?php echo $_photo['title'] ?>"<?php endif; ?> alt="<?php echo $_photo['title'] ?>" src="http://farm<?php echo $_photo['farm'] ?>.static.flickr.com/<?php echo $_photo['server'] ?>/<?php echo $_photo['id'] ?>_<?php echo $_photo['secret'] ?>_<?php echo $_thumbPrefix; ?>.jpg" />
+                </div>
+            </a>
+        </div>
+        <?php endforeach; ?>
+        <div class="f-clear"></div>
+    </div>
+    
+    <?php echo $this->getLayout()->createBlock('flickr/toolbar', 'flickrtoolbar')->setData('data', $_data)->setTemplate('inchoo/flickrgallery/toolbar.phtml')->toHtml(); ?>
+	
+<?php else: ?>
+	<p class="note-msg"><?php echo Mage::helper('flickr')->__('There are no photos in this photoset.') ?></p>
+<?php endif; ?>

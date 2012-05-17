@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+
+	<default>
+		<reference name="footer_links">
+			<action method="addLink" translate="label title">
+				<label>Gallery</label>
+				<url>gallery</url>
+				<title>Gallery</title>
+				<prepare>true</prepare> <!-- set true if adding base url param -->
+				<urlParams helper="core/url/getHomeUrl"/> <!-- base url - thanks @Russ! --> 
+				<position>100</position>
+				<liParams/>
+				<aParams>class="top-link-gallery"</aParams>
+			</action>
+		</reference>
+	</default>
+
+	<flickr_gallery>
+		<reference name="head">
+			<action method="addCss"><stylesheet>inchoo/flickrgallery/css/flickr.css</stylesheet></action>
+		</reference>
+	</flickr_gallery>
+	
+	<flickr_gallery_include_lightbox>
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>inchoo/flickrgallery/lightbox/js/lightbox.js</name></action>
+			<action method="addCss"><stylesheet>inchoo/flickrgallery/lightbox/css/lightbox.css</stylesheet></action>
+		</reference>
+	</flickr_gallery_include_lightbox>
+
+	<!--flickr_gallery_index>
+		<reference name="content">
+			<block type="core/template" name="test" after="flickrgallery" template="test.phtml" />
+		</reference>
+	</flickr_gallery_index-->
+	
+	<!--flickr_gallery_set>
+	</flickr_gallery_set-->
+	
+	<cms_index_index>
+		<reference name="content">
+			<block type="flickr/photosets" name="flickrgalleycarousel" template="inchoo/flickrgallery/carousel.phtml" />
+		</reference>
+	</cms_index_index>
+</layout>

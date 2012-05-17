@@ -1,0 +1,174 @@
+/* Style: standard ------------------------------------- */
+.style-standard .opentip {
+	border: 1px solid #f2e37b;
+	background-color: #fff18f;
+	color: black;
+	padding: 6px 10px;
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+}
+.style-standard .opentip .title {
+	margin-bottom: 1px;
+}
+.style-standard .stem {
+    color: #e3ca1b; /* JS will read this property to draw the stem in the right color. */
+}
+.style-standard .ot-buttons {
+	top: -6px;
+	right: -6px;
+}
+.style-standard .ot-buttons .close {
+	width: 21px;
+	height: 21px;
+}
+.style-standard .ot-buttons .close .canvas {
+  background-color: rgba(255, 241, 143, 0.5);
+  color: #a2932B;
+}
+
+
+/* Style: black ---------------------------------------- */
+.style-black .opentip {
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+	box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
+	-webkit-box-shadow: 0 0 5px rgba(50, 50, 50, 0.5);
+}
+.style-black .opentip .title {
+	color: #fff;
+	padding: 5px 10px 3px 10px;
+	border-bottom: 1px solid #333;
+}
+.style-black .opentip .otip-content {
+	padding: 6px 10px;
+	color:#fff;
+}
+.style-black .stem {
+  color: #000;
+  color:rgba(0, 0, 0, 0.8);
+}
+.style-black .ot-buttons {
+	right: -7px;
+	top: -5px;
+}
+.style-black .ot-buttons .close {
+	height: 19px;
+	width: 19px;
+}
+.style-black .ot-buttons .close .canvas {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Style: rounded -------------------------------------- */
+.style-rounded .opentip {
+	border: 7px solid #81b4da;
+	background-color: #f9fbfc;
+	color: #3f5d73;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+.style-rounded .opentip .title {
+	background: #81b4da;
+	color: #f7fafd;
+	padding: 0px 10px 4px 10px;
+}
+.style-rounded .opentip .otip-content {
+	padding: 6px 10px;
+}
+.style-rounded .stem {
+  color: #c3ddf0;
+}
+.style-rounded .ot-buttons {
+	top: -3px;
+	right: -3px;
+}
+.style-rounded .ot-buttons .close {
+	width: 21px;
+	height: 21px;
+}
+.style-rounded .ot-buttons .close .canvas {
+  background-color: #81B4DA;
+}
+
+
+/* Style: slick ---------------------------------------- */
+.style-slick .opentip {
+	border: 1px solid #eeeeee;
+	background: #f7f7f7;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.style-slick .opentip .title {
+	color: #49677e;
+	padding: 5px 10px 3px 10px;
+	border-bottom: 1px solid #eeeeee;
+}
+.style-slick .opentip .otip-content {
+	padding: 6px 10px;
+	border-top: 1px solid #fefefe;
+}
+.style-slick .stem {
+  color: #cccccc;
+}
+.style-slick .ot-buttons {
+	right: -7px;
+	top: -5px;
+}
+.style-slick .ot-buttons .close {
+	height: 19px;
+	width: 19px;
+}
+.style-slick .ot-buttons .close .canvas {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Style: glass ---------------------------------------- */
+.style-glass .opentip {
+	background: white;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 0 0 15px rgba(51, 113, 136, 0.5);
+	-moz-box-shadow: 0 0 15px rgba(51, 113, 136, 0.5);
+	-webkit-box-shadow: 0 0 15px rgba(51, 113, 136, 0.5);
+	padding: 20px 30px; 
+	border: 1px solid #bbbbbb;
+}
+.style-glass .opentip .title {
+	color: #316F89;
+	font-family: serif;
+	font-style: italic;
+	margin: 0 0 20px 0;
+	font-size: 16px;
+}
+.style-glass .opentip .otip-content {
+	color: #333333;
+}
+.style-glass .stem {
+  color: #ffffff;
+}
+.style-glass .ot-buttons {
+	right: -3px;
+	top: -3px;
+}
+.style-glass .ot-buttons .close {
+	width: 25px;
+	height: 25px;
+}
+.style-glass .ot-buttons .close .canvas {
+  background-color: #F7BA00;
+}

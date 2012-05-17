@@ -1,0 +1,38 @@
+<?php
+	$photosetsResult = $this->getPhotoSets(1, 0);
+	$photosets = $photosetsResult['sets'];
+	$hasTooltip = $this->carouselHasTooltip();
+?>
+<?php if(count($photosets)): ?>
+
+	<style type="text/css">
+		@import url("<?php echo $this->getSkinUrl('inchoo/flickrgallery/css/carousel.css') ?>");
+		<?php if($hasTooltip): ?>
+			@import url("<?php echo $this->getSkinUrl('inchoo/flickrgallery/enyo-opentip/opentip.css') ?>");
+			@import url("<?php echo $this->getSkinUrl('inchoo/flickrgallery/css/tooltips.css') ?>");
+		<?php endif; ?>
+		#flickr-carousel-wrapper { width:<?php echo (intval($this->getCarouselVisibleCount()) * 90); ?>px; }
+		#flickr-carousel-content { width:<?php echo count($photosets) * 90; ?>px; }
+	</style>
+
+	<div id="flickr-carousel" class="block">
+		<div class="block-title">
+			<strong><span><a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>gallery/"><?php echo Mage::helper('flickr')->__('Gallery') ?></a></span></strong>
+		</div>
+		<div class="block-content">
+			<div id="flickr-carousel-bkg">
+				<a href="javascript:void(0)" class="carousel-control next" rel="next"></a>
+				<a href="javascript:void(0)" class="carousel-control prev" rel="prev"></a>
+				<div id="flickr-carousel-wrapper">
+					<div id="flickr-carousel-content">
+						<?php foreach($photosets as $photoset): ?>
+							<a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>gallery/set/id/<?php echo $photoset['id'] ?>" class="<?php if($hasTooltip) echo 'opentip' ?>" title="<?php echo $photoset['title'] ?>" id="<?php echo 'set-' . $photoset['id'] ?>">
+								<img src="http://farm<?php echo $photoset['farm'] ?>.static.flickr.com/<?php echo $photoset['server'] ?>/<?php echo $photoset['cover'] ?>_<?php echo $photoset['secret'] ?>_s.jpg" alt="<?php echo $photosets['title'] ?>" />
+							</a>
+						<?php endforeach; ?>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>

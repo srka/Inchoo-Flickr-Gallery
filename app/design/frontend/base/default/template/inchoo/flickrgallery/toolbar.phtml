@@ -1,0 +1,9 @@
+<div class="toolbar">
+	<?php
+		echo $this->getLayout()->
+			createBlock('flickr/toolbar', 'flickrpager')->
+			setData('data', $this->data)->
+			setTemplate('inchoo/flickrgallery/toolbar/pager.phtml')->
+			toHtml();
+	?>
+</div>

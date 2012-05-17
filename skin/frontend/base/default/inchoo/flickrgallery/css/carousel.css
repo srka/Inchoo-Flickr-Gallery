@@ -1,0 +1,9 @@
+#flickr-carousel-wrapper { position:absolute; top:20px; left:30px; height:87px; overflow:hidden; }
+#flickr-carousel-bkg { width:100%; height:125px; position:relative; }
+#flickr-carousel-bkg .carousel-control { position:absolute; top:20px; z-index:10; display:block; width:20px; height:87px; }
+#flickr-carousel-bkg .carousel-control.prev { left:5px; background:url(../../../images/i_pager-prev.gif) center no-repeat; }
+#flickr-carousel-bkg .carousel-control.next { right:5px; background:url(../../../images/i_pager-next.gif) center no-repeat; }
+#flickr-carousel-content { height:87px; }
+#flickr-carousel-content a { display:block; float:left; width:90px; height:85px; margin:1px 0 0 0; padding:0; }
+#flickr-carousel-content a img { padding:5px; background:#ddd; box-shadow:inset 0 0 0 1px #bbb; -moz-box-shadow:inset 0 0 0 1px #bbb; -webkit-box-shadow:inset 0 0 0 1px #bbb; }
+#flickr-carousel-content a:hover img { background:#333; box-shadow:inset 0 0 0 1px #000; -moz-box-shadow:inset 0 0 0 1px #000; -webkit-box-shadow:inset 0 0 0 1px #000; }

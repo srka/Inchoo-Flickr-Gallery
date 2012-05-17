@@ -1,0 +1,44 @@
+<?php $hasTooltip = $this->carouselHasTooltip(); ?>
+
+<div id="flickr_carousel_ajax"></div>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('inchoo/flickrgallery/js/carousel.js') ?>"></script>
+<?php if($hasTooltip): ?>
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('inchoo/flickrgallery/enyo-opentip/opentip.js') ?>"></script>
+<?php endif; ?>
+<script type="text/javascript">
+//<![CDATA[
+	document.observe("dom:loaded", function(){
+		new Ajax.Request("<?php echo Mage::getUrl('gallery/index/rendercarousel/') ?>",{
+			method:'get',
+			onSuccess: function (data){
+				var response = data.responseText;
+				$('flickr_carousel_ajax').innerHTML = response;
+				
+				new Carousel('flickr-carousel-wrapper', $$("#flickr-carousel-content a"), $('flickr-carousel').select('.carousel-control'), {
+					<?php echo $this->getCarouselOptions();  ?>
+				});
+		
+				<?php if($hasTooltip): ?>
+				$$('.opentip').each(function(elem){
+					var content = elem.readAttribute('title');
+					elem.removeAttribute('title');
+					$(elem.readAttribute('id')).addTip(
+						content, 
+						{
+							<?php $_tooltip_style = $this->carouselGetTooltipStyle(); ?>
+							<?php if($_tooltip_style): ?>
+								className: '<?php echo $_tooltip_style; ?>',
+							<?php endif; ?>
+							delay: 0.1,
+							stem: false,
+							target: false,
+							tipJoint: ['center', 'top']
+						});
+				});
+				<?php endif; ?>
+			}
+		});
+	});
+//]]>
+</script>

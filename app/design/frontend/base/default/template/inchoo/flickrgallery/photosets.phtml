@@ -1,0 +1,36 @@
+<?php $_page = $this->getPageNumber(); ?>
+<div class="flickr_gallery">
+	<?php
+		$breadcrumbs = $this->getLayout()->getBlock('breadcrumbs');
+		$breadcrumbs->addCrumb('home', array('label'=>Mage::helper('cms')->__('Home'), 'title'=>Mage::helper('cms')->__('Home Page'), 'link'=>Mage::getBaseUrl()));
+		$breadcrumbs->addCrumb('gallery', array('label'=>'Gallery', 'title'=>'Gallery'));
+		echo $this->getLayout()->getBlock('breadcrumbs')->toHtml();
+	?>
+
+	<div class="page-title">
+		<h1><?php echo Mage::helper('flickr')->__('Photosets'); ?></h1>
+	</div>
+
+	<div id="flickr_galley_ajax">
+		<div id="loading-mask">
+			<img src="<?php echo $this->getSkinUrl('inchoo/flickrgallery/images/loading.gif') ?>" alt="<?php echo Mage::helper('flickr')->__('Loading...') ?>"/>
+			<?php echo Mage::helper('flickr')->__('Please wait...') ?>
+		</div>
+	</div>
+	
+	<?php echo $this->getChildHtml('test') ?>
+
+	<script type="text/javascript">
+	//<![CDATA[
+		document.observe("dom:loaded", function(){
+			new Ajax.Request("<?php echo Mage::getUrl('gallery/index/rendersets/') . "page/$_page" ?>",{
+				method:'get',
+				onSuccess: function (data){
+					var response = data.responseText;
+					$('flickr_galley_ajax').innerHTML = response;
+				}
+			});
+		});
+	//]]>
+	</script>
+</div>

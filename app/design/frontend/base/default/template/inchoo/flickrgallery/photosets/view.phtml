@@ -1,0 +1,47 @@
+<?php 
+	$_page = $this->getPageNumber();
+	$_per_page = $this->getPerPage();
+	$photosetsResult = $this->getPhotoSets($_page, $_per_page);
+	$photosets = $photosetsResult['sets'];
+	$_thumbPrefix = $this->getThumbSizePrefix();
+	if(!isset($_thumbPrefix) || empty($_thumbPrefix)) $_thumbPrefix = 'q';
+
+	// Toolbar Data
+	$_data['view'] =  'photosets';
+	$_data['total'] =  $photosetsResult['total'];
+	$_data['pages'] =  $photosetsResult['pages'];
+	$_data['page'] =  $_page;
+	$_data['per_page'] =  $_per_page;
+?>
+
+<?php if(!empty($photosets)): ?>
+
+	<?php echo $this->getLayout()->createBlock('flickr/toolbar', 'flickrtoolbar')->setData('data', $_data)->setTemplate('inchoo/flickrgallery/toolbar.phtml')->toHtml(); ?>
+	
+	<div class="photoset-thumb-wrapper">
+		<?php $tmp_count = 0; ?>
+		<?php foreach($photosets as $photoset):?>
+		<?php $tmp_count++; ?>
+		<div id="thumbnail_<?php echo $photoset['id'] ?>" class="thumbnail<?php ($tmp_count%2) ? $tmp_class = 'odd' : $tmp_class = 'even'; echo " $tmp_class"; ?>">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td class="img"><a href="<?php echo Mage::getUrl('gallery/set/id/') . $photoset['id'] ?>"><div class="img_wrapper gray-box-5"><img src="http://farm<?php echo $photoset['farm'] ?>.static.flickr.com/<?php echo $photoset['server'] ?>/<?php echo $photoset['cover'] ?>_<?php echo $photoset['secret'] ?>_<?php echo $_thumbPrefix; ?>.jpg" /></div></a></td>
+					<td class="info">
+						<h4><a href="<?php echo Mage::getUrl('gallery/set/id/') . $photoset['id'] ?>"><?php echo $photoset['title'] ?></a></h4>
+						<p class="description"><?php echo $photoset['description'] ?></p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	
+	<div class="f-clear"></div>
+	
+	<div class="toolbar-bottom">
+		<?php echo $this->getLayout()->createBlock('flickr/toolbar', 'flickrtoolbar')->setData('data', $_data)->setTemplate('inchoo/flickrgallery/toolbar.phtml')->toHtml(); ?>
+	</div>
+	
+<?php else: ?>
+	<p class="note-msg"><?php echo Mage::helper('flickr')->__('There are no photosets in the gallery.') ?></p>
+<?php endif; ?>

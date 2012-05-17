@@ -1,0 +1,52 @@
+<?php 
+	$_view = $this->data['view'];
+	if($_view == 'photosets'){
+		$_url = Mage::getUrl("gallery/sets/page/");
+	}elseif($_view == 'photoset'){
+		$_url = Mage::getUrl() . "gallery/set/id/" . $this->data['photoset_id'] . "/page/";
+	}
+	$_page = ($this->data['page']) ? $this->data['page'] : 1;
+	$_per_page = $this->data['per_page'];
+	$_pages = $this->data['pages'];
+	$_total = $this->data['total'];
+	$_items_from = ($_page - 1) * $_per_page + 1;
+	$_items_to = $_page * $_per_page;
+?>
+<div class="pager">
+	<?php if($_pages > 1): ?>
+		<p class="amount"><?php echo $this->__('Items %s to %s of %s', $_items_from, $_items_to, $_total) ?></p>
+	<?php else: ?>
+		<p class="amount"><strong><?php echo $this->__('%s Item(s)', $_total) ?></strong></p>
+	<?php endif; ?>
+	
+	<?php if($_pages > 1): ?>
+		<ol class="pages">
+			<?php // Previous // ?>
+			<?php if($_page > 1): ?>
+				<li class="first">
+					<a title="Previous" href="<?php echo $_url . intval($_page - 1); ?>" class="previous i-previous">
+						<img class="v-middle" alt="Previous" src="<?php echo $this->getSkinUrl('images/pager_arrow_left.gif'); ?>" />
+					</a>
+				</li>
+			<?php endif; ?>
+						
+			<?php // Pages // ?>	
+			<?php for($i = 1; $i <= $_pages; $i++): ?>
+				<?php if($i == $_page): ?>
+					<li class="current<?php if($i == 1) echo ' first'; if($i == $_pages) echo ' last'; ?>"><span><?php echo $i; ?></span></li>
+				<?php else: ?>
+					<li><a href="<?php echo $_url . $i; ?>"><?php echo $i; ?></a></li>
+				<?php endif; ?>
+			<?php endfor; ?>
+			
+			<?php // Next // ?>
+			<?php if($_page != $_pages): ?>
+				<li class="last">
+					<a title="Next" href="<?php echo $_url . intval($_page + 1); ?>" class="next i-next">
+						<img class="v-middle" alt="Next" src="<?php echo $this->getSkinUrl('images/pager_arrow_right.gif'); ?>" />
+					</a>
+				</li>
+			<?php endif; ?>
+		</ol>
+	<?php endif; ?>
+</div>
