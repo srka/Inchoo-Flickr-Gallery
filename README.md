@@ -18,7 +18,7 @@ Features
 
 How to install?
 ---------------
-Download the Inchoo Flickr Gallery module files to your Magento root directory. Module files will be extracted into the base package / default template so if you have your own package just copy the module files to your package / template directories.
+Download Inchoo Flickr Gallery module files to your Magento root directory. Module files will be extracted into the base package / default template so if you have your own package just copy the module files to your package / template directories.
 If you are logged in to your Magento back-end you have to log out and then log in again. Clearing the cache would also be a good idea.
 
 
