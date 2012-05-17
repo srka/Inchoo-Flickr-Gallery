@@ -3,7 +3,6 @@ app/code/community/Phoenix/
 app/code/core/
 app/design/adminhtml/default/default/
 app/design/adminhtml/default/find/
-app/design/frontend/base/
 app/design/frontend/default/blank/
 app/design/frontend/default/default/
 app/design/frontend/default/iphone/
@@ -84,7 +83,6 @@ shell/compiler.php
 shell/indexer.php
 shell/log.php
 skin/adminhtml/default/default/
-skin/frontend/base/
 skin/frontend/default/blank/
 skin/frontend/default/blue/
 skin/frontend/default/default/
