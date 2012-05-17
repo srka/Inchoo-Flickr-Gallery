@@ -2,6 +2,7 @@ Inchoo-Flickr-Gallery
 =====================
 
 Inchoo Flick Gallery is an easy-to-use Magento module that will integrate any Flickr gallery into your Magetno website. It is fully customizable using a simple Magento back-end configuration page and it uses Flickr API to get all the required information and data.
+Module is tested on Magento 1.6 and 1.7
 
 Features
 ---------------
