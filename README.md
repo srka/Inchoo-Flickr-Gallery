@@ -1,8 +1,8 @@
 Inchoo-Flickr-Gallery
 =====================
 
-Inchoo Flick Gallery is an easy-to-use Magento module that will integrate any Flickr gallery into your Magetno website. It is fully customizable using a simple Magento back-end configuration page and it uses Flickr API to get all the required information and data.
-Module is tested on Magento 1.6 and 1.7 but it’s still the first version so be careful if you decide to use it on your live site.
+Inchoo Flick Gallery is an easy-to-use Magento extension that will integrate any Flickr gallery into your Magetno website. It is fully customizable using a simple Magento back-end configuration page and it uses Flickr API to get all the required information and data.
+Extension is tested on Magento 1.6 and 1.7 but it’s still the first version so be careful if you decide to use it on your live site.
 
 Features
 ---------------
@@ -19,14 +19,14 @@ Features
 
 How to install?
 ---------------
-Download Inchoo Flickr Gallery module files to your Magento root directory. Module files will be extracted into the base package / default template so if you have your own package just copy the module files to your package / template directories.
+Download Inchoo Flickr Gallery extension files to your Magento root directory. Extension files will be extracted into the base package / default template so if you have your own package just copy the extension files to your package / template directories.
 
 If you are logged in to your Magento back-end you have to log out and then log in again. Clearing the cache would also be a good idea.
 
 
 Configuration
 -------------
-Inchoo Flickr Gallery module is made to be fully and easily configurable form Magento back-end. Just go to System -> Configuration -> Inchoo -> Flickr Gallery to find all the available configuration options.
+Inchoo Flickr Gallery extension is made to be fully and easily configurable form Magento back-end. Just go to System -> Configuration -> Inchoo -> Flickr Gallery to find all the available configuration options.
 To get started you’ll need to have a Flickr API Key and User ID. Go to http://www.flickr.com/services/api/misc.api_keys.html to get your own Flickr API Key and http://idgettr.com/ for your User ID.
 Once you enter your API Key and User ID save your configuration and you will get the list of all the photosets available for the user specified with the User ID. You can select all of them or just the ones you want to show on the site and save your configuration. That should be enough get the gallery up and running.
 All the other configuration options are pretty straight forward with useful descriptions so there is no need to explain them separately.
