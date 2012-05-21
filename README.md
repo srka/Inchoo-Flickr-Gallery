@@ -13,13 +13,14 @@ Features
   * Configurable tooltips with different skin styles to choose from
   * Integrated Lightbox that can be disabled if you want to use your own
   * Fully customizable carousel block that can be added to any page
-  * Fully customizable Flick API response caching for increased performance
+  * Fully customizable Flickr API response caching for increased performance
   * Using AJAX to eliminate the page loading delay caused by Flickr API requests
 
 
 How to install?
 ---------------
 Download Inchoo Flickr Gallery module files to your Magento root directory. Module files will be extracted into the base package / default template so if you have your own package just copy the module files to your package / template directories.
+
 If you are logged in to your Magento back-end you have to log out and then log in again. Clearing the cache would also be a good idea.
 
 
