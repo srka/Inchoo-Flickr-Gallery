@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Inchoo_Flickr>
+			<version>1.0.0</version>
+		</Inchoo_Flickr>
+	</modules>
+	<global>
+		<blocks>
+			<flickr>
+				<class>Inchoo_Flickr_Block</class>
+			</flickr>
+		</blocks>
+		
+		<models>
+			<flickr>
+				<class>Inchoo_Flickr_Model</class>
+				<resourceModel>flickr_mysql4</resourceModel>
+			</flickr>
+	  		<flickr_mysql4>
+				<class>Inchoo_Flickr_Model_Mysql4</class>
+				<entities>
+					<flickr>
+						<table>flickr</table>
+					</flickr>
+				</entities>
+	        </flickr_mysql4>
+		</models>
+		
+		
+		
+		
+        <resources>
+            <flickr_setup>
+                <setup>
+                    <module>Inchoo_Flickr</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </flickr_setup>
+            <flickr_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </flickr_write>
+            <flickr_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </flickr_read>
+        </resources>
+		
+		
+		
+		
+		<helpers>
+			<flickr>
+				<class>Inchoo_Flickr_Helper</class>
+			</flickr>
+		</helpers>
+		<rewrite>
+            <photosets>
+                <from><![CDATA[#^/gallery/sets/#]]></from>
+                <to><![CDATA[/gallery/index/sets/]]></to>
+			</photosets>
+            <photoset>
+                <from><![CDATA[#^/gallery/set/#]]></from>
+                <to><![CDATA[/gallery/index/set/]]></to>
+            </photoset>
+        </rewrite>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <sets>
+                        <class>Inchoo_Flickr_Model_Observer</class>
+                        <method>addSetsHandle</method>
+                    </sets>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+	</global>
+	
+	<frontend>
+        <routers>
+            <flickr>
+                <use>standard</use>
+                <args>
+                    <module>Inchoo_Flickr</module>
+                    <frontName>gallery</frontName>
+                </args>
+            </flickr>
+        </routers>
+		<layout>
+			<updates>
+				<flickr>
+					<file>inchooflickr.xml</file>
+				</flickr>
+			</updates>
+		</layout>
+    </frontend>
+	
+	<adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <flickrconfig>
+                                            <title>Store Flickr Module Section</title>
+                                        </flickrconfig>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	
+	<default>
+		<flickrconfig>
+		
+			<flickrphotosets>
+				<photosets_per_page>8</photosets_per_page>
+				<thumbsize>q</thumbsize>
+			</flickrphotosets>
+			
+			<flickrphotoset>
+				<photos_per_page>10</photos_per_page>
+				<thumbsize>s</thumbsize>
+				<tooltip>1</tooltip>
+				<tooltip_style>black</tooltip_style>
+			</flickrphotoset>
+			
+			<flickrlightbox>
+				<use_lightbox>1</use_lightbox>
+				<image_target>1</image_target>
+				<include_lightbox>1</include_lightbox>
+			</flickrlightbox>
+			
+			<flickrcarousel>
+				<duration>0.5</duration>
+				<auto>0</auto>
+				<frequency>5</frequency>
+				<visibleslides>7</visibleslides>
+				<circular>0</circular>
+				<wheel>1</wheel>
+				<transition>sinoidal</transition>
+				<tooltip>1</tooltip>
+				<tooltip_style>black</tooltip_style>
+			</flickrcarousel>
+			
+			<cache>
+				<timeout>24</timeout>
+			</cache>
+			
+		</flickrconfig>
+	</default>
+</config>
