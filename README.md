@@ -1,3 +1,9 @@
+This extension is move to https://github.com/srka/Srka-Magento-Flickr-Gallery
+
+This is an old extension and will not be updated anymore.
+
+ORIGINAL INFO:
+
 Inchoo-Flickr-Gallery
 =====================
 
